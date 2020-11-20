@@ -1,30 +1,35 @@
 // SHow Modal
 
-(function openModal() {
-    const openModal = document.querySelector('.modal-opener');
-    openModal.addEventListener('click', () => {showModal()});
+(function openModalClick() {
+    const openModalButtons = document.querySelectorAll('.open-modal-btn'); 
+    for (let i = 0; i < openModalButtons.length; i += 1) {
+        openModalButtons[i].addEventListener('click', () => {
+            showModal();
+        })
+    }
 })();
-     
-
 
 function showModal() {
- const displayFlex = document.querySelector('.modal-container');
- displayFlex.classList.add("display-flex");
+    const displayFlex = document.querySelector('.modal-container');
+    displayFlex.classList.remove("display-none");
+    displayFlex.classList.add("display-flex");
 }
 
 // Hide Modal
 
-(function closeModal() {
-    const closeModal = document.querySelectorAll('.cancel-modal');
-    for(let i = 0; i < closeModal.length; i += 1) {
-        closeModal[i].addEventListener('click', () => {hideModal()
-    })
+(function closeModalClick() {
+    const closeModalButtons = document.querySelectorAll('.cancel-modal-btn');
+    for (let i = 0; i < closeModalButtons.length; i += 1) {
+        closeModalButtons[i].addEventListener('click', () => {
+            hideModal()
+        })
     };
 })();
-     
-
 
 function hideModal() {
     const displayFlex = document.querySelector('.modal-container');
+    displayFlex.classList.remove("display-flex");
     displayFlex.classList.add("display-none");
-   }
+}
+
+
