@@ -1,4 +1,4 @@
-// SHow Modal
+// SHow Modal on Button Clicks
 
 (function openModalClick() {
     const openModalButtons = document.querySelectorAll('.open-modal-btn'); 
@@ -10,11 +10,13 @@
 })();
 
 function showModal() {
-    const displayFlex = document.querySelector('.modal-bg');
-    displayFlex.classList.remove("modal-hidden");
-    displayFlex.classList.add("modal-visible");
-    // const modalBackground = document.querySelector('.modal-background');
-    // modalBackground.classList.add('background-opacity');
+    const modalContent = document.querySelector('.modal-content');
+    modalContent.classList.remove('modal-hidden');
+    modalContent.classList.add('modal-visible');
+    modalContent.focus();
+    const modalBackground = document.querySelector('.modal-bg');
+    modalBackground.classList.remove('modal-hidden');
+    modalBackground.classList.add('modal-visible');
 }
 
 // Hide Modal on Button Clicks
@@ -23,23 +25,27 @@ function showModal() {
     const closeModalButtons = document.querySelectorAll('.cancel-modal-btn');
     for (let i = 0; i < closeModalButtons.length; i += 1) {
         closeModalButtons[i].addEventListener('click', () => {
-            hideModal()
+            hideModal();
         })
     };
 })();
 
-// Hide Modal on Window Clicks
-
-
-
-
-
-
 
 function hideModal() {
-    const displayFlex = document.querySelector('.modal-bg');
-    displayFlex.classList.remove("modal-visible");
-    displayFlex.classList.add("modal-hidden");
-    // const modalBackground = document.querySelector('.modal-background');
-    // modalBackground.classList.remove('background-opacity');
+    const modalContent = document.querySelector('.modal-content');
+    modalContent.classList.remove('modal-visible');
+    modalContent.classList.add('modal-hidden');
+    const modalBackground = document.querySelector('.modal-bg');
+    modalBackground.classList.remove('modal-visible');
+    modalBackground.classList.add('modal-hidden');
 }
+
+
+// Hide Modal on Outside Click
+
+(function outsideClickHideModal() {
+    const outsideArea = document.querySelector('.modal-bg');
+    outsideArea.addEventListener('click', () => {
+        hideModal();
+    })
+})();
