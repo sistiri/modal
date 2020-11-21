@@ -10,12 +10,14 @@
 })();
 
 function showModal() {
-    const displayFlex = document.querySelector('.modal-container');
-    displayFlex.classList.remove("display-none");
-    displayFlex.classList.add("display-flex");
+    const displayFlex = document.querySelector('.modal-bg');
+    displayFlex.classList.remove("modal-hidden");
+    displayFlex.classList.add("modal-visible");
+    // const modalBackground = document.querySelector('.modal-background');
+    // modalBackground.classList.add('background-opacity');
 }
 
-// Hide Modal
+// Hide Modal on Button Clicks
 
 (function closeModalClick() {
     const closeModalButtons = document.querySelectorAll('.cancel-modal-btn');
@@ -26,10 +28,18 @@ function showModal() {
     };
 })();
 
+// Hide Modal on Window Clicks
+
+
+
+
+
+
+
 function hideModal() {
-    const displayFlex = document.querySelector('.modal-container');
-    displayFlex.classList.remove("display-flex");
-    displayFlex.classList.add("display-none");
+    const displayFlex = document.querySelector('.modal-bg');
+    displayFlex.classList.remove("modal-visible");
+    displayFlex.classList.add("modal-hidden");
+    // const modalBackground = document.querySelector('.modal-background');
+    // modalBackground.classList.remove('background-opacity');
 }
-
-
